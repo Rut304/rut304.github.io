@@ -5,27 +5,57 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Terms of Service — RutRoh</title>
 <meta name="description" content="RutRoh terms of service, including SMS/text-messaging program terms.">
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Sans+3:wght@400;600&display=swap">
 <style>
-  :root{--ink:#1a222b;--muted:#5a6672;--brand:#2E5D34;--bg:#f7f8f9;--card:#fff}
+  :root{
+    --ink:#14181D; --text:#232A31; --muted:#5A6470; --brand:#2E5D34; --brand-dark:#234A29;
+    --bg:#FAFAF8; --card:#FFFFFF; --line:#E5E7E2; --header-text:#EDEEEA;
+  }
   *{box-sizing:border-box}
-  body{margin:0;font:17px/1.65 system-ui,-apple-system,Segoe UI,sans-serif;color:var(--ink);background:var(--bg)}
-  .wrap{max-width:760px;margin:0 auto;padding:3rem 1.25rem}
-  header h1{font-size:2rem;margin:0 0 .25rem}
-  header p.tag{color:var(--muted);margin:0 0 2rem}
-  .card{background:var(--card);border:1px solid #e3e7ea;border-radius:12px;padding:1.25rem 1.5rem;margin:1rem 0}
-  .card h2{font-size:1.05rem;margin:0 0 .5rem;color:var(--brand)}
-  .card p, .card li{color:var(--muted)}
+  body{margin:0;background:var(--bg);color:var(--text);
+    font:17px/1.65 "Source Sans 3",system-ui,-apple-system,"Segoe UI",sans-serif}
+  a{color:var(--brand)}
+  .wrap{max-width:820px;margin:0 auto;padding:0 1.4rem}
+  .top{background:var(--ink)}
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.1rem 1.4rem}
+  .nav .logo img{height:46px;width:auto;display:block}
+  .nav nav a{color:var(--header-text);text-decoration:none;font-size:.95rem}
+  .btn{display:inline-block;background:var(--brand);color:#fff !important;text-decoration:none !important;
+    padding:.5rem 1.05rem;border-radius:8px;font-weight:600;font-size:.92rem}
+  .btn:hover{background:var(--brand-dark)}
+  header.page{padding:3rem 0 1.5rem}
+  h1{font-family:"Playfair Display",Georgia,serif;font-weight:700;font-size:2.2rem;margin:0 0 .35rem;color:var(--ink)}
+  p.tag{color:var(--muted);margin:0}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1.25rem 1.5rem;margin:1rem 0}
+  .card h2{font-family:"Playfair Display",Georgia,serif;font-size:1.15rem;margin:0 0 .5rem;color:var(--brand)}
+  .card p,.card li{color:var(--muted)}
   .card p{margin:.5rem 0}
   ul{padding-left:1.2rem;margin:.5rem 0}
-  strong{color:var(--ink)}
-  footer{margin-top:2.5rem;color:var(--muted);font-size:.9rem}
-  a{color:var(--brand)}
-  @media(max-width:480px){.wrap{padding:2rem 1rem}header h1{font-size:1.6rem}}
+  strong{color:var(--text)}
+  footer{background:var(--ink);color:#9AA3AC;margin-top:3rem;padding:2rem 0;font-size:.92rem}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+  footer a{color:var(--header-text);text-decoration:none;margin-left:1.2rem}
+  footer a:hover{text-decoration:underline}
+  @media(max-width:600px){h1{font-size:1.7rem}footer a{margin-left:0;margin-right:1.2rem}}
 </style>
 </head>
 <body>
+
+<header class="top">
+  <div class="wrap nav">
+    <a class="logo" href="/" aria-label="RutRoh home">
+      <img src="/assets/rutroh-wordmark-white.png" alt="RutRoh" style="height:46px;width:auto">
+    </a>
+    <nav><a class="btn" href="https://app.rutroh.org/login">Client login</a></nav>
+  </div>
+</header>
+
 <div class="wrap">
-  <header>
+  <header class="page">
     <h1>Terms of Service</h1>
     <p class="tag">RutRoh · Jeffrey S Rutman, sole proprietor · Effective August 22, 2026</p>
   </header>
@@ -79,9 +109,17 @@
     Questions: <a href="mailto:jeff@rutroh.org">jeff@rutroh.org</a> · RutRoh, Jeffrey S
     Rutman, sole proprietor, Northborough, Massachusetts.</p>
   </div>
-
-  <footer>© 2026 RutRoh — Jeffrey S Rutman. All rights reserved. ·
-  <a href="/">Home</a> · <a href="/privacy.html">Privacy Policy</a></footer>
 </div>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 RutRoh — Jeffrey S Rutman. All rights reserved.</span>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/privacy.html">Privacy Policy</a>
+    </nav>
+  </div>
+</footer>
+
 </body>
 </html>

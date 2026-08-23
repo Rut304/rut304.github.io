@@ -5,52 +5,213 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>RutRoh — Back-office software for small service businesses</title>
 <meta name="description" content="RutRoh builds hosted back-office cockpits for small service businesses: quoting, scheduling, invoicing, payment follow-up, and customer messaging — with an owner approval on every message.">
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta property="og:title" content="RutRoh — Back-office software for small service businesses">
+<meta property="og:description" content="Hosted operations cockpits for 1–25 person service businesses, customized to how each business actually runs.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Sans+3:wght@400;600&display=swap">
 <style>
-  :root{--ink:#1a222b;--muted:#5a6672;--brand:#2E5D34;--bg:#f7f8f9;--card:#fff}
+  :root{
+    --ink:#14181D; --text:#232A31; --muted:#5A6470; --brand:#2E5D34; --brand-dark:#234A29;
+    --bg:#FAFAF8; --card:#FFFFFF; --line:#E5E7E2; --header-text:#EDEEEA;
+  }
   *{box-sizing:border-box}
-  body{margin:0;font:17px/1.65 system-ui,-apple-system,Segoe UI,sans-serif;color:var(--ink);background:var(--bg)}
-  .wrap{max-width:760px;margin:0 auto;padding:3rem 1.25rem}
-  header h1{font-size:2rem;margin:0 0 .25rem}
-  header p.tag{color:var(--muted);font-size:1.15rem;margin:0 0 2rem}
-  .card{background:var(--card);border:1px solid #e3e7ea;border-radius:12px;padding:1.25rem 1.5rem;margin:1rem 0}
-  .card h2{font-size:1.05rem;margin:0 0 .5rem;color:var(--brand)}
-  .card p{margin:0;color:var(--muted)}
-  ul{padding-left:1.2rem;color:var(--muted)}
-  footer{margin-top:2.5rem;color:var(--muted);font-size:.9rem}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--text);
+    font:17px/1.65 "Source Sans 3",system-ui,-apple-system,"Segoe UI",sans-serif}
+  img{max-width:100%}
   a{color:var(--brand)}
-  @media(max-width:480px){.wrap{padding:2rem 1rem}header h1{font-size:1.6rem}}
+  .wrap{max-width:1020px;margin:0 auto;padding:0 1.4rem}
+
+  /* header */
+  .top{background:var(--ink)}
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.1rem 1.4rem}
+  .nav .logo img{height:40px;width:auto;display:block}
+  .nav nav{display:flex;align-items:center;gap:1.4rem;font-size:.95rem}
+  .nav nav a{color:var(--header-text);text-decoration:none}
+  .nav nav a:hover{text-decoration:underline}
+  .btn{display:inline-block;background:var(--brand);color:#fff !important;text-decoration:none !important;
+    padding:.55rem 1.15rem;border-radius:8px;font-weight:600;font-size:.95rem}
+  .btn:hover{background:var(--brand-dark)}
+  .btn.big{padding:.75rem 1.5rem;font-size:1.02rem}
+  .btn.ghost{background:transparent;color:var(--brand) !important;border:1.5px solid var(--brand)}
+  .btn.ghost:hover{background:var(--brand);color:#fff !important}
+
+  /* hero */
+  .hero{padding:4.5rem 0 3.5rem;border-bottom:1px solid var(--line)}
+  .hero .wrap{display:grid;grid-template-columns:1.5fr 1fr;gap:2.5rem;align-items:center}
+  h1{font-family:"Playfair Display",Georgia,serif;font-weight:700;font-size:clamp(2.1rem,4.6vw,3.2rem);
+    line-height:1.12;margin:0 0 1rem;color:var(--ink);text-wrap:balance}
+  .hero p.lede{font-size:1.18rem;color:var(--muted);margin:0 0 1.8rem;max-width:34rem}
+  .hero .cta{display:flex;gap:.9rem;flex-wrap:wrap}
+  .hero .mark{justify-self:center}
+  .hero .mark img{max-height:300px;width:auto}
+
+  /* sections */
+  section{padding:3.4rem 0}
+  h2{font-family:"Playfair Display",Georgia,serif;font-weight:600;font-size:1.75rem;
+    color:var(--ink);margin:0 0 1.4rem;text-wrap:balance}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1.25rem 1.4rem}
+  .card h3{margin:0 0 .4rem;font-size:1.05rem;color:var(--brand)}
+  .card p{margin:0;color:var(--muted);font-size:.98rem}
+
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;counter-reset:step}
+  .step{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1.4rem}
+  .step::before{counter-increment:step;content:counter(step);display:inline-flex;
+    width:2rem;height:2rem;align-items:center;justify-content:center;border-radius:50%;
+    background:var(--brand);color:#fff;font-weight:600;margin-bottom:.7rem}
+  .step h3{margin:0 0 .4rem;font-size:1.05rem;color:var(--ink)}
+  .step p{margin:0;color:var(--muted);font-size:.98rem}
+
+  .band{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .band p, .band li{color:var(--muted)}
+  .band strong{color:var(--text)}
+  .band ul{padding-left:1.2rem;margin:.6rem 0}
+
+  .contact-card{background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:1.6rem 1.8rem;display:flex;justify-content:space-between;gap:2rem;flex-wrap:wrap;align-items:center}
+  .contact-card p{margin:0;color:var(--muted)}
+  .contact-card strong{color:var(--ink);font-size:1.05rem}
+
+  /* footer */
+  footer{background:var(--ink);color:#9AA3AC;margin-top:3rem;padding:2.4rem 0;font-size:.92rem}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:1.5rem;flex-wrap:wrap}
+  footer img{height:38px;width:auto;display:block}
+  footer a{color:var(--header-text);text-decoration:none;margin-left:1.2rem}
+  footer a:hover{text-decoration:underline}
+  footer .legal{margin-top:.4rem}
+
+  @media(max-width:800px){
+    .hero .wrap{grid-template-columns:1fr}
+    .hero .mark{display:none}
+    .cards,.steps{grid-template-columns:1fr}
+    .nav nav a.plain{display:none}
+    footer .wrap{flex-direction:column;align-items:flex-start}
+    footer a{margin-left:0;margin-right:1.2rem}
+  }
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header>
-    <h1>RutRoh</h1>
-    <p class="tag">Back-office software for small service businesses.</p>
-  </header>
-  <div class="card">
-    <h2>What we do</h2>
-    <p>RutRoh builds hosted "cockpit" apps for 1–25 person service businesses — landscapers,
-    cleaning crews, housekeeping teams, and other local trades. One place for the work that
-    eats an owner's evenings: photo-based quoting, quote follow-ups, scheduling and
-    appointment reminders, invoicing and payment follow-up, review requests, and a daily
-    owner digest.</p>
+
+<header class="top">
+  <div class="wrap nav">
+    <a class="logo" href="/" aria-label="RutRoh home">
+      <img src="/assets/rutroh-wordmark-white.png" alt="RutRoh" width="240" height="80" style="height:52px;width:auto">
+    </a>
+    <nav>
+      <a class="plain" href="#what">What we do</a>
+      <a class="plain" href="#how">How it works</a>
+      <a class="plain" href="#contact">Contact</a>
+      <a class="btn" href="https://app.rutroh.org/login">Client login</a>
+    </nav>
   </div>
-  <div class="card">
-    <h2>How it works</h2>
-    <ul>
-      <li>Each customer gets their own cockpit, customized to how their business actually runs.</li>
-      <li>Every customer-facing message is drafted for the owner and sent only with their approval.</li>
-      <li>Messaging respects quiet hours and opt-outs by design — reply STOP to any text to opt out.</li>
-    </ul>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <h1>The <span style="white-space:nowrap">back office</span>, handled.</h1>
+      <p class="lede">RutRoh builds hosted operations cockpits for 1–25 person service
+      businesses — quoting, scheduling, invoicing, payment follow-up, and customer
+      messaging in one place, customized to how each business actually runs.</p>
+      <div class="cta">
+        <a class="btn big" href="mailto:jeff@rutroh.org">Talk to us</a>
+        <a class="btn big ghost" href="#how">How it works</a>
+      </div>
+    </div>
+    <div class="mark">
+      <img src="/assets/rutroh-mark.png" alt="" width="330" height="240" style="max-height:280px;width:auto">
+    </div>
   </div>
-  <div class="card">
-    <h2>Contact</h2>
-    <p>RutRoh · Jeffrey S Rutman, sole proprietor<br>
-    Northborough, Massachusetts<br>
-    <a href="mailto:jeff@rutroh.org">jeff@rutroh.org</a></p>
-  </div>
-  <footer>© 2026 RutRoh — Jeffrey S Rutman. All rights reserved. ·
-  <a href="/privacy.html">Privacy Policy</a> · <a href="/terms.html">Terms of Service</a></footer>
 </div>
+
+<section id="what">
+  <div class="wrap">
+    <h2>What your cockpit does</h2>
+    <div class="cards">
+      <div class="card"><h3>Quoting &amp; follow-up</h3>
+        <p>Estimates go out fast, and polite follow-ups go out on schedule — so quotes stop
+        dying in a text thread.</p></div>
+      <div class="card"><h3>Scheduling &amp; reminders</h3>
+        <p>Jobs on one calendar, with confirmations and appointment reminders your customers
+        actually read.</p></div>
+      <div class="card"><h3>Invoicing &amp; payments</h3>
+        <p>Invoices on job completion and courteous payment follow-up, so owners stop
+        chasing checks at 9pm.</p></div>
+      <div class="card"><h3>Customer messaging</h3>
+        <p>Every customer-facing message is drafted for the owner and sent only with their
+        approval — never on autopilot.</p></div>
+      <div class="card"><h3>Review requests</h3>
+        <p>Happy customers get a well-timed ask for a review; unhappy ones get the owner's
+        attention first.</p></div>
+      <div class="card"><h3>Owner's daily digest</h3>
+        <p>One morning summary of the day ahead: schedule, money in, money owed, and what
+        needs a decision.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="how" class="band">
+  <div class="wrap">
+    <h2>How it works</h2>
+    <div class="steps">
+      <div class="step"><h3>Tell us how you run</h3>
+        <p>A short interview about your jobs, pricing, crew, and customers — in person or
+        online, at your pace.</p></div>
+      <div class="step"><h3>We build your cockpit</h3>
+        <p>Your own private app, on your own web address, configured to your services,
+        your prices, and your way of working.</p></div>
+      <div class="step"><h3>You approve, it runs</h3>
+        <p>The cockpit drafts the busywork; you approve what goes out. Quiet hours and
+        opt-outs are respected by design.</p></div>
+    </div>
+    <div style="margin-top:2rem">
+      <h2 style="font-size:1.35rem">Messaging &amp; consent</h2>
+      <p><strong>Text messages are sent only to people who opted in</strong> — customers who
+      gave their phone number to a business we serve and consented to receive messages about
+      that service.</p>
+      <ul>
+        <li>Reply <strong>STOP</strong> to any message to opt out at any time. Reply
+        <strong>HELP</strong> for help.</li>
+        <li>Message frequency varies by your interaction with the business.
+        <strong>Message and data rates may apply.</strong></li>
+        <li>No mobile information is shared with third parties or affiliates for marketing
+        or promotional purposes.</li>
+      </ul>
+      <p>Full details: <a href="/privacy.html">Privacy Policy</a> ·
+      <a href="/terms.html">Terms of Service</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <h2>Contact</h2>
+    <div class="contact-card">
+      <p><strong>RutRoh</strong><br>
+      Jeffrey S Rutman, sole proprietor<br>
+      Northborough, Massachusetts</p>
+      <a class="btn big" href="mailto:jeff@rutroh.org">jeff@rutroh.org</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <img src="/assets/rutroh-wordmark-white.png" alt="RutRoh">
+      <p class="legal">© 2026 RutRoh — Jeffrey S Rutman. All rights reserved.</p>
+    </div>
+    <nav>
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Service</a>
+      <a href="https://app.rutroh.org/login">Client login</a>
+    </nav>
+  </div>
+</footer>
+
 </body>
 </html>
